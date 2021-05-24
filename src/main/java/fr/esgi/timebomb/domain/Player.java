@@ -1,40 +1,30 @@
 package fr.esgi.timebomb.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Data
+@AllArgsConstructor
 public class Player {
+
+    @Id
+    @GeneratedValue
     private int id;
-    private String discord_id;
-    private List<Card> cards;
+    private String username;
+    private String password;
 
-    public Player (int id, String discord_id) {
-        this.id = id;
-        this.discord_id = discord_id;
-        this.cards = new ArrayList<Card>();
-    }
+    public Player() {
 
-    public int getId() {
-        return id;
     }
+//    private List<Card> cards;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDiscord_id() {
-        return discord_id;
-    }
-
-    public void setDiscord_id(String discord_id) {
-        this.discord_id = discord_id;
-    }
-
-    public List<Card> getCards() {
-        return cards;
-    }
-
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
-    }
 }

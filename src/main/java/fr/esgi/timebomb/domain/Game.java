@@ -1,3 +1,4 @@
+/*
 package fr.esgi.timebomb.domain;
 
 import java.util.ArrayList;
@@ -86,3 +87,4 @@ public class Game {
         }
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package fr.esgi.timebomb.domain;
 
 public class Move {
@@ -27,3 +28,4 @@ public class Move {
         this.card = card;
     }
 }
+*/
