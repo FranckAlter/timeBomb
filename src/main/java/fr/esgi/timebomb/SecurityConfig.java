@@ -31,8 +31,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/api/**").hasRole(String.valueOf(Role.USER))
-//            .antMatchers("/api/auth/**").permitAll()
+            .antMatchers("/auth/**").permitAll()
+            .antMatchers("/**").authenticated()
             .and()
             .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);
     }

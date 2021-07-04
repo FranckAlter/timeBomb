@@ -13,7 +13,7 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("players")
+@RequestMapping("/players")
 public class PlayerController {
 
     @Autowired
