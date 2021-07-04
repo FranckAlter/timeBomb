@@ -1,19 +1,16 @@
 package fr.esgi.timebomb.dto;
 
+import fr.esgi.timebomb.domain.Card;
 import fr.esgi.timebomb.domain.Role;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
-public class RegisterDTO {
+public class UserDTO {
 
-    @NotNull
+    private Long id;
     private String username;
-
-    @NotNull
-    private String password;
-
-    @NotNull
     private Role role;
+    private List<Card> cards;
 }

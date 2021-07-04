@@ -24,15 +24,15 @@ class BootstrapAccounts {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @EventListener
-    void onStartup(ApplicationReadyEvent event) {
-        Card card = new Card().setValue(Card.Value.BOMB);
-        Card card1 = new Card().setValue(Card.Value.COLOR);
-        of(
-//                new Player().setUsername("mvestro").setPassword(passwordEncoder.encode("haribo")).setRoles(List.of("USER")),
-                new Player("mvestro",passwordEncoder.encode("haribo"), Role.USER, List.of(card, card1))
-//                new Player().setUsername("admin").setPassword(passwordEncoder.encode("admintest")).setRoles(List.of("USER", "ADMIN"))
-        ).forEach(accountRepository::save);
-    }
+//    @EventListener
+//    void onStartup(ApplicationReadyEvent event) {
+//        Card card = new Card().setValue(Card.Value.BOMB);
+//        Card card1 = new Card().setValue(Card.Value.COLOR);
+//        of(
+////                new Player().setUsername("mvestro").setPassword(passwordEncoder.encode("haribo")).setRoles(List.of("USER")),
+//                new Player("mvestro",passwordEncoder.encode("haribo"), Role.USER, List.of(card, card1))
+////                new Player().setUsername("admin").setPassword(passwordEncoder.encode("admintest")).setRoles(List.of("USER", "ADMIN"))
+//        ).forEach(accountRepository::save);
+//    }
 
 }

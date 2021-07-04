@@ -1,5 +1,6 @@
 package fr.esgi.timebomb;
 
+import fr.esgi.timebomb.domain.Role;
 import fr.esgi.timebomb.security.JWTFilter;
 import fr.esgi.timebomb.security.TokenProvider;
 import org.springframework.context.annotation.Bean;
@@ -30,8 +31,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/**").authenticated()
-            .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/**").hasRole(String.valueOf(Role.USER))
+//            .antMatchers("/api/auth/**").permitAll()
             .and()
             .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);
     }
