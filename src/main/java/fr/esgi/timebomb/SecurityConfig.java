@@ -26,16 +26,13 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/api/**").hasRole("USER")
-                .antMatchers("/admin/**").hasRole("ADMIN")
-            .anyRequest()
-                .authenticated()
-                .and()
+            .antMatchers("/api/**").authenticated()
+            .antMatchers("/api/auth/**").permitAll()
+            .and()
             .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);
     }
 

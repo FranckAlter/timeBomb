@@ -3,6 +3,7 @@ package fr.esgi.timebomb;
 import fr.esgi.timebomb.domain.Card;
 import fr.esgi.timebomb.domain.Player;
 import fr.esgi.timebomb.dao.AccountRepository;
+import fr.esgi.timebomb.domain.Role;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,7 +30,7 @@ class BootstrapAccounts {
         Card card1 = new Card().setValue(Card.Value.COLOR);
         of(
 //                new Player().setUsername("mvestro").setPassword(passwordEncoder.encode("haribo")).setRoles(List.of("USER")),
-                new Player("mvestro",passwordEncoder.encode("haribo"),List.of("USER"), List.of(card, card1))
+                new Player("mvestro",passwordEncoder.encode("haribo"), Role.USER, List.of(card, card1))
 //                new Player().setUsername("admin").setPassword(passwordEncoder.encode("admintest")).setRoles(List.of("USER", "ADMIN"))
         ).forEach(accountRepository::save);
     }
